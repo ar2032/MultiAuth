@@ -5,13 +5,28 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in as a user!
-                </div>
-            </div>
-        </div>
+    <div class="containner">
+    <table border = "1">
+    <tr>
+    <td>Account name</td>
+    <td>Country</td>
+    <td>Name</td>
+    <td>Designation</td>
+    <td>Mobile Number</td>
+    <td>Email</td>
+
+    </tr>
+    @foreach ($posts as $user)
+    <tr>
+    <td>{{ $user->account_name }}</td>
+    <td>{{ $user->country }}</td>
+    <td>{{ $user->name }}</td>
+    <td>{{ $user->designation }}</td>
+    <td>{{ $user->mobile_number }}</td>
+    <td>{{ $user->email }}</td>
+    </tr>
+    @endforeach
+    </table>
+
     </div>
 </x-app-layout>
