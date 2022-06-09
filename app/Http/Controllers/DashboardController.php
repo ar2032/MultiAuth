@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 
 class DashboardController extends Controller
 {
@@ -17,7 +18,8 @@ class DashboardController extends Controller
             $posts = DB::select('select * from office');
             return view('userdash',['posts'=>$posts]);
         }elseif(Auth::user()->hasRole('administrator')){
-             return view('administratordash');
+            $posts = Post::all();
+            return view('administratordash',['posts'=>$posts]);
         }elseif(Auth::user()->hasRole('admin')){
          return view('dashboard');
         }

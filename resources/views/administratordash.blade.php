@@ -5,13 +5,39 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in as a administrator!
-                </div>
-            </div>
-        </div>
+    <div class="containner">
+    <table border = "1">
+    <tr>
+    <td>Campaign Id</td>
+    <td>Campaign Name</td>
+    <td>Type</td>
+    <td>GoLive Date</td>
+    <td>Status</td>
+    <td>Start Date</td>
+    <td>End Date</td>
+    <td>Total Project Value</td>
+    <td>Subscription/AMC Value</td>
+    <td>AMC Cloud Charges</td>
+    <td>Payment Stage</td>
+
+    </tr>
+    @foreach ($posts as $user)
+    <tr>
+    <td>{{ $user['Campaign Id'] }}</td>
+    <td>{{ $user['Campaign Name'] }}</td>
+    <td>{{ $user['Type'] }}</td>
+    <td>{{ $user['GoLive Date'] }}</td>
+    <td>{{ $user['Status'] }}</td>
+    <td>{{ $user['Start Date'] }}</td>
+    <td>{{ $user['End Date'] }}</td>
+    <td>{{ $user['Total Project Value'] }}</td>
+    <td>{{ $user['Subscription/AMC Value'] }}</td>
+    <td>{{ $user['AMC Cloud Charges'] }}</td>
+    <td>{{ $user['Payment Stage'] }}</td>
+
+    </tr>
+    @endforeach
+    </table>
+
     </div>
 </x-app-layout>
