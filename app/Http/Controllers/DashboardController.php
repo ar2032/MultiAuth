@@ -21,7 +21,9 @@ class DashboardController extends Controller
             $posts = Post::all();
             return view('administratordash',['posts'=>$posts]);
         }elseif(Auth::user()->hasRole('admin')){
-         return view('dashboard');
+         $people = DB::select('select * from office');
+         $posts = Post::all();
+         return view('dashboard',['posts'=>$posts,'people'=>$people]);
         }
     }
 }
