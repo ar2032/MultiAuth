@@ -1,27 +1,30 @@
-<!DOCTPE html>
-<html>
-<head>
-<title>Admin Login</title>
-</head>
-<body>
-    Welcome to Admin dash
-<h1>Table 1</h1>
-<div class="containner">
-    <table border = "1">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
+    
+    <h1>Table 1</h1>
+    <table class="table-auto">
+    <thead>
     <tr>
-    <td>Campaign Id</td>
-    <td>Campaign Name</td>
-    <td>Type</td>
-    <td>GoLive Date</td>
-    <td>Status</td>
-    <td>Start Date</td>
-    <td>End Date</td>
-    <td>Total Project Value</td>
-    <td>Subscription/AMC Value</td>
-    <td>AMC Cloud Charges</td>
-    <td>Payment Stage</td>
+    <th>Campaign Id</th>
+    <th>Campaign Name</th>
+    <th>Type</th>
+    <th>GoLive Date</th>
+    <th>Status</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Total Project Value</th>
+    <th>Subscription/AMC Value</th>
+    <th>AMC Cloud Charges</th>
+    <th>Payment Stage</th>
 
     </tr>
+    </thead>
+    
+    <tbody>
     @foreach ($posts as $user)
     <tr>
     <td>{{ $user['Campaign Id'] }}</td>
@@ -38,12 +41,11 @@
 
     </tr>
     @endforeach
+    </tbody>
     </table>
-
-    </div>
+    
     <h2>Table 2</h2>
-    <div class="containner">
-    <table border = "1">
+    <table >
     <tr>
     <td>Account name</td>
     <td>Country</td>
@@ -65,6 +67,4 @@
     @endforeach
     </table>
 
-    </div>
-</body>
-</html>
+    </x-app-layout>
